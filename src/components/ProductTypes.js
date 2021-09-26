@@ -95,6 +95,7 @@ const Wrapper = styled.div`
    }
    @media screen and (max-width: 768px) {
       text-align: center;
+
       .types {
          justify-content: center;
       }

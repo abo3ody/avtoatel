@@ -19,7 +19,10 @@ export const cartSlice = createSlice({
          }
          return {
             ...state,
-            cartItem: { ...arr },
+            cartItem: {
+               ...arr,
+               type: action.payload.type ? action.payload.type : null,
+            },
          };
       },
       ADD_ITEM_OPTION: (state, action) => {
