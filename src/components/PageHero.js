@@ -40,4 +40,12 @@ const Wrapper = styled.section`
       letter-spacing: 0.1rem;
       text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
    }
+   @media screen and (max-width: 768px) {
+      .hero_title {
+         font-size: 2rem;
+      }
+      .hero_text {
+         font-size: 1.3rem;
+      }
+   }
 `;

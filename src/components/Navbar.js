@@ -35,7 +35,6 @@ function Navbar() {
                className={`${
                   isSidebarOpen ? "nav_menu show_sidebar" : "nav_menu"
                }`}
-               className="nav_menu"
             >
                {links.map((link) => {
                   const { id, text, url } = link;

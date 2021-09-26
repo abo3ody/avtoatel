@@ -1,47 +1,43 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components/macro";
-import { ADD_ITEM_OPTION, SET_CART_ITEM } from "../features/cartSlice";
-import { CHANGE_GALLERY_IMAGE, selectProduct } from "../features/productSlice";
+import { CHANGE_GALLERY_IMAGES } from "../features/productSlice";
 
-function SingleOption({ option }) {
-   const [selected, setSelected] = useState("бежевый");
+function ProductTypes({ type }) {
+   const { stepText, content } = type;
+   const [selected, setSelected] = useState(content[0].text);
    const [isActive, setIsActive] = useState(1);
-   const { stepText, content } = option;
-   const { product } = useSelector(selectProduct);
+
    const dispatch = useDispatch();
 
-   const handleClick = (id, text, category, imgUrl) => {
+   const handleClick = (id, text, base, border, line, type) => {
       setIsActive(id);
       setSelected(text);
-      dispatch(CHANGE_GALLERY_IMAGE({ category, imgUrl }));
-      dispatch(ADD_ITEM_OPTION({ category, text }));
+      dispatch(CHANGE_GALLERY_IMAGES({ base, border, line, type }));
    };
-
    useEffect(() => {
-      setSelected("бежевый");
-      setIsActive(1);
-      dispatch(SET_CART_ITEM(product));
-      // eslint-disable-next-line
-   }, [product]);
-
+      setSelected(content[0].text);
+   }, [content]);
    return (
       <Wrapper>
          <p className="title">{stepText}</p>
-         <ul className="colors">
+         <ul className="types">
             {content.map((item) => {
-               const { id, color, category, Text, imgUrl } = item;
+               const { id, text, img, base, border, line, type } = item;
                return (
                   <li
                      key={id}
-                     onClick={() => handleClick(id, Text, category, imgUrl)}
+                     onClick={() =>
+                        handleClick(id, text, base, border, line, type)
+                     }
                   >
                      <div
-                        className={`circle ${color} ${
+                        className={`circle  ${
                            id === isActive ? "active" : null
                         }`}
-                     />
+                     >
+                        <img src={img} alt="" />
+                     </div>
                   </li>
                );
             })}
@@ -54,7 +50,7 @@ function SingleOption({ option }) {
    );
 }
 
-export default SingleOption;
+export default ProductTypes;
 
 const Wrapper = styled.div`
    background: #383838;
@@ -67,9 +63,8 @@ const Wrapper = styled.div`
       text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       letter-spacing: 0.1rem;
    }
-   .colors {
+   .types {
       display: flex;
-      /* width: 80%; */
       flex-wrap: wrap;
    }
    li {
@@ -92,9 +87,15 @@ const Wrapper = styled.div`
          font-weight: 500;
       }
    }
+   img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: contain;
+   }
    @media screen and (max-width: 768px) {
       text-align: center;
-      .colors {
+      .types {
          justify-content: center;
       }
    }

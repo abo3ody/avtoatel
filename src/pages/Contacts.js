@@ -7,6 +7,7 @@ function Contacts() {
             <iframe
                src="https://yandex.com/map-widget/v1/?um=constructor%3Ab6af293ba9ee2bba45b34d64a6de3e00ef49952a3f38cbbc595f4d4688cce520&amp;source=constructor"
                frameBorder="0"
+               title="our office"
             ></iframe>
          </div>
          <div className="info">

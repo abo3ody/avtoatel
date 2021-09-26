@@ -45,4 +45,12 @@ const Wrapper = styled.main`
       grid-template-columns: repeat(2, 1fr);
       margin-top: 6rem;
    }
+   @media screen and (max-width: 768px) {
+      .order_title {
+         font-size: 2rem;
+      }
+      .content_body {
+         grid-template-columns: 1fr;
+      }
+   }
 `;

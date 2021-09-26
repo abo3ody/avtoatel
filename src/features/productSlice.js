@@ -14,7 +14,6 @@ export const productSlice = createSlice({
       },
       CHANGE_GALLERY_IMAGE: (state, action) => {
          const { category, imgUrl } = action.payload;
-         console.log(category, imgUrl);
          const newGallery = state.gallery.map((i) =>
             i.name === category ? { ...i, imgUrl: imgUrl } : i
          );
@@ -24,11 +23,36 @@ export const productSlice = createSlice({
             gallery: newGallery,
          };
       },
+      CHANGE_GALLERY_IMAGES: (state, action) => {
+         const { base, border, line, type } = action.payload;
+         const newGallery = state.gallery.map((i) => {
+            if (i.name === "base") {
+               return { ...i, imgUrl: base };
+            }
+            if (i.name === "border") {
+               return { ...i, imgUrl: border };
+            }
+            if (i.name === "line") {
+               return { ...i, imgUrl: line };
+            }
+            return i;
+         });
+         return {
+            ...state,
+            product: { ...state.product, type },
+            gallery: newGallery,
+         };
+      },
    },
 });
 
-export const { product, gallery, GET_PRODUCT, CHANGE_GALLERY_IMAGE } =
-   productSlice.actions;
+export const {
+   product,
+   gallery,
+   GET_PRODUCT,
+   CHANGE_GALLERY_IMAGE,
+   CHANGE_GALLERY_IMAGES,
+} = productSlice.actions;
 
 export const selectProduct = (state) => state.product;
 

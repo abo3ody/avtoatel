@@ -8,7 +8,7 @@ function Gallery() {
    return (
       <Wrapper>
          {gallery.map((image) => (
-            <img key={image.id} src={image.imgUrl} />
+            <img key={image.id} src={image.imgUrl} alt="constructor" />
          ))}
       </Wrapper>
    );
@@ -30,5 +30,9 @@ const Wrapper = styled.article`
       height: 100%;
 
       padding: 1rem;
+   }
+   @media screen and (max-width: 768px) {
+      width: 100%;
+      margin-bottom: 2rem;
    }
 `;
