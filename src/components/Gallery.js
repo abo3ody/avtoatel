@@ -29,7 +29,7 @@ const Wrapper = styled.article`
       width: 100%;
       height: 100%;
 
-      padding: 1rem;
+      padding: 1rem 0;
    }
    @media screen and (max-width: 768px) {
       width: 100%;

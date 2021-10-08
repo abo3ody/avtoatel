@@ -46,10 +46,15 @@ const Wrapper = styled.main`
       margin-top: 6rem;
    }
    @media screen and (max-width: 768px) {
+      width: 100vw;
+      padding: 6rem 0;
+
       .order_title {
          font-size: 2rem;
       }
       .content_body {
+         width: 90%;
+         margin: 6rem auto;
          grid-template-columns: 1fr;
       }
    }

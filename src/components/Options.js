@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { selectProduct } from "../features/productSlice";
 import ProductTypes from "./ProductTypes";
 import SingleOption from "./SingleOption";

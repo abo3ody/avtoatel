@@ -71,4 +71,9 @@ const Wrapper = styled.div`
          color: #ffd700;
       }
    }
+   @media screen and (max-width: 667px) {
+      .sets {
+         grid-template-columns: 1fr;
+      }
+   }
 `;
