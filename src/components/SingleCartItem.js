@@ -2,21 +2,38 @@ import React from "react";
 import styled from "styled-components/macro";
 
 import { FaMinus, FaPlus, FaTrash, FaChevronDown } from "react-icons/fa";
+import {
+   REMOVE_CART_ITEM,
+   TOGGLE_CART_ITEM_AMOUNT,
+} from "../features/cartSlice";
+import { useDispatch } from "react-redux";
 
 function SingleCartItem({ item }) {
    console.log(item);
-   const { img, productName: name, price } = item;
+   const { id, img, productName: name, price, amount } = item;
+
+   const dispatch = useDispatch();
+
+   const removeCartItem = (id) => {
+      dispatch(REMOVE_CART_ITEM(id));
+   };
+   const increase = (id) => {
+      dispatch(TOGGLE_CART_ITEM_AMOUNT({ id, value: "inc" }));
+   };
+   const decrease = (id) => {
+      dispatch(TOGGLE_CART_ITEM_AMOUNT({ id, value: "dec" }));
+   };
    return (
       <Wrapper>
          <img src={img} alt={name} />
          <h4 className="title">{name}</h4>
          <div className="quantity">
-            <FaMinus />
-            <p className="count">1</p>
-            <FaPlus />
+            <FaMinus onClick={() => decrease(id)} />
+            <p className="count">{amount}</p>
+            <FaPlus onClick={() => increase(id)} />
          </div>
-         <p className="price">{price} руб.</p>
-         <div className="delete_item">
+         <p className="price">{price * amount} руб.</p>
+         <div className="delete_item" onClick={() => removeCartItem(id)}>
             <FaTrash />
             <p>удалить</p>
          </div>

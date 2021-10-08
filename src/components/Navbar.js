@@ -4,15 +4,20 @@ import styled from "styled-components/macro";
 import { links } from "../utils/constants";
 import logo from "../assets/ksv_logo.png";
 import { FaBars, FaShoppingCart, FaTimes } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { selectCart } from "../features/cartSlice";
 
 function Navbar() {
    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+   const { total_items } = useSelector(selectCart);
+
    const openSidebar = () => {
       setIsSidebarOpen(true);
    };
    const closeSidebar = () => {
       setIsSidebarOpen(false);
    };
+
    return (
       <Wrapper>
          <button type="button" className="nav_toggle" onClick={openSidebar}>
@@ -57,7 +62,7 @@ function Navbar() {
          <div className="cart">
             <Link to="/cart">
                <FaShoppingCart />
-               <span className="cart_value">0</span>
+               <span className="cart_value">{total_items}</span>
             </Link>
          </div>
       </Wrapper>
@@ -136,10 +141,10 @@ const Wrapper = styled.nav`
       }
       .cart_value {
          font-size: 1.4rem;
-         font-weight: 400;
+         font-weight: 700;
          position: absolute;
          color: #141414;
-         background-color: #fff;
+         background-color: #ffd700;
          width: 2rem;
          height: 2rem;
          display: flex;

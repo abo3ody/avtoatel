@@ -24,7 +24,7 @@ function SingleOption({ option }) {
       setIsActive(1);
       dispatch(SET_CART_ITEM(product));
       // eslint-disable-next-line
-   }, [product]);
+   }, [product.type]);
 
    return (
       <Wrapper>

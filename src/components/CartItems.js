@@ -7,9 +7,9 @@ import { FaTimes } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 
 function CartItems() {
-   const { cart } = useSelector(selectCart);
+   const { cart, total_amount } = useSelector(selectCart);
    const dispatch = useDispatch();
-   if (cart.length === 0) {
+   if (cart.length < 1) {
       return (
          <Wrapper>
             <div className="empty">
@@ -38,6 +38,14 @@ function CartItems() {
                <SingleCartItem key={item.id} item={item} />
             ))}
          </ul>
+         <div className="cart_footer">
+            <Link to="/products" className="continue_shopping">
+               продолжить покупки
+            </Link>
+            <p className="total_price">
+               сумма к оплате: <span>{total_amount} руб.</span>
+            </p>
+         </div>
       </Wrapper>
    );
 }
@@ -98,5 +106,32 @@ const Wrapper = styled.section`
    }
    .cart_items {
       margin: 1rem;
+   }
+   .cart_footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 0.1rem solid gray;
+      padding: 1rem;
+      .continue_shopping {
+         background: #fff;
+         color: #383838;
+         padding: 1rem;
+         font-size: 1.5rem;
+         font-weight: 500;
+         letter-spacing: 0.1rem;
+         border-radius: 0.5rem;
+         &:hover {
+            opacity: 0.8;
+         }
+      }
+      .total_price {
+         font-size: 1.5rem;
+         letter-spacing: 0.1rem;
+         text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+         span {
+            color: #ffd700;
+         }
+      }
    }
 `;

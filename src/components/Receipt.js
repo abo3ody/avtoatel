@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import { ADD_TO_CART, selectCart } from "../features/cartSlice";
 
@@ -17,9 +18,15 @@ function Receipt() {
             <span>Сумма Заказа : </span>
             {cartItem.price} руб.
          </p>
-         <button className="btn" onClick={() => addToCart(cartItem)}>
-            ДОБАВИТЬ В КОРЗИНУ
-         </button>
+         <Link to="/cart" className="add_to_cart">
+            <button
+               to="/cart"
+               className="btn"
+               onClick={() => addToCart(cartItem)}
+            >
+               ДОБАВИТЬ В КОРЗИНУ
+            </button>
+         </Link>
       </Wrapper>
    );
 }
