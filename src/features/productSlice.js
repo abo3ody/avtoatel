@@ -43,6 +43,10 @@ export const productSlice = createSlice({
             gallery: newGallery,
          };
       },
+      CHANGE_SET: (state, action) => {
+         const { text, price } = action.payload;
+         return { ...state, product: { ...state.product, set: text, price } };
+      },
    },
 });
 
@@ -52,6 +56,7 @@ export const {
    GET_PRODUCT,
    CHANGE_GALLERY_IMAGE,
    CHANGE_GALLERY_IMAGES,
+   CHANGE_SET,
 } = productSlice.actions;
 
 export const selectProduct = (state) => state.product;

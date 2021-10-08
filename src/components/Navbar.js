@@ -74,6 +74,7 @@ const Wrapper = styled.nav`
    width: 90vw;
    max-width: 1180px;
    margin: 0 auto;
+
    .logo-container {
       width: 5rem;
    }

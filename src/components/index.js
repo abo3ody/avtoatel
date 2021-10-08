@@ -8,6 +8,11 @@ import PageHero from "./PageHero";
 import Options from "./Options";
 import Gallery from "./Gallery";
 import PlaceOrder from "./PlaceOrder";
+import ProductSets from "./ProductSets";
+import Receipt from "./Receipt";
+import SingleCartItem from "./SingleCartItem";
+import CartItems from "./CartItems";
+import CheckOut from "./CheckOut";
 
 export {
    Footer,
@@ -20,4 +25,9 @@ export {
    Options,
    Gallery,
    PlaceOrder,
+   ProductSets,
+   Receipt,
+   SingleCartItem,
+   CartItems,
+   CheckOut,
 };

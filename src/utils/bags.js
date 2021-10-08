@@ -10,6 +10,8 @@ export const bags = {
    text: "Удобный и нужный органайзер в багажник, а так же это стильный аксессуар. Необходимая вещь для создания уюта в багажнике.",
    url: "/products/bags",
    type: "square",
+   set: "70x30x30",
+   price: 2650,
    galleryImgs: [
       {
          id: 1,
@@ -765,6 +767,23 @@ export const bags = {
                imgUrl: "/products/Кофры/Узор/Ромб/белый.png",
             },
          ],
+      },
+   ],
+   sets: [
+      {
+         id: 1,
+         text: "70x30x30",
+         price: 2650,
+      },
+      {
+         id: 2,
+         text: "50x30x30",
+         price: 1500,
+      },
+      {
+         id: 3,
+         text: "30x30x30",
+         price: 1000,
       },
    ],
 };

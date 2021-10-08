@@ -29,6 +29,7 @@ a {
 
 .btn {
    padding: 1rem;
+   font-weight: 700;
    background-color: transparent;
    border: 0.3rem solid #fff;
    border-radius: 2rem;
@@ -39,6 +40,11 @@ a {
    transition: all 0.3s ease-in-out;
    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+   background-color: #fff;
+   color: #141414;
 }
 
 .circle {

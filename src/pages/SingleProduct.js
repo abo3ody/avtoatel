@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import styled from "styled-components/macro";
-import { PageHero, PlaceOrder } from "../components";
+import { PageHero, PlaceOrder, Receipt } from "../components";
 import { SET_CART_ITEM } from "../features/cartSlice";
 import { GET_PRODUCT } from "../features/productSlice";
 import { products } from "../utils/constants";
@@ -23,6 +23,7 @@ function SingleProduct() {
       <Wrapper>
          <PageHero />
          <PlaceOrder />
+         <Receipt />
       </Wrapper>
    );
 }

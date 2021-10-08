@@ -22,6 +22,9 @@ export const cartSlice = createSlice({
             cartItem: {
                ...arr,
                type: action.payload.type ? action.payload.type : null,
+               set: action.payload.set,
+               price: action.payload.price,
+               img: action.payload.galleryImgs[0].imgUrl,
             },
          };
       },
@@ -34,11 +37,26 @@ export const cartSlice = createSlice({
             },
          };
       },
+      ADD_TO_CART: (state, action) => {
+         const { productName, base, border, type, line } = state.cartItem;
+         const id = `${productName}${base}${border}${type}${line}`;
+
+         return { ...state, cart: [...state.cart, { ...state.cartItem, id }] };
+      },
+      CLEAR_CART: (state) => {
+         return { ...state, cart: [] };
+      },
    },
 });
 
-export const { cart, cartItem, SET_CART_ITEM, ADD_ITEM_OPTION } =
-   cartSlice.actions;
+export const {
+   cart,
+   cartItem,
+   SET_CART_ITEM,
+   ADD_ITEM_OPTION,
+   ADD_TO_CART,
+   CLEAR_CART,
+} = cartSlice.actions;
 
 export const selectCart = (state) => state.cart;
 

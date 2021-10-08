@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { selectProduct } from "../features/productSlice";
 import ProductTypes from "./ProductTypes";
 import SingleOption from "./SingleOption";
+import { ProductSets } from ".";
 
 function Options() {
    const {
@@ -24,12 +25,12 @@ function Options() {
                return <SingleOption key={index} option={option} />;
             }
             return null;
-            // return (
-
-            //    (option.type && option.type === product.type) ||
-            //    (!option.type && <SingleOption key={index} option={option} />)
-            // );
          })}
+         <ProductSets
+            sets={product.sets}
+            active={product.set}
+            name={product.pageName}
+         />
       </Wrapper>
    );
 }
