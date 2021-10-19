@@ -9,7 +9,7 @@ import {
 import { useDispatch } from "react-redux";
 
 function SingleCartItem({ item }) {
-   console.log(item);
+   // console.log(item);
    const { id, img, productName: name, price, amount } = item;
 
    const dispatch = useDispatch();
@@ -114,6 +114,34 @@ const Wrapper = styled.li`
       transition: color 0.3s ease-in-out;
       &:hover {
          color: #ffd700;
+      }
+   }
+   @media screen and (max-width: 667px) {
+      grid-template-columns: 7rem repeat(2, minmax(2rem, 1fr));
+
+      grid-template-areas:
+         "img title title price"
+         "img quantity delete showMore";
+      img {
+         grid-area: img;
+      }
+      .title {
+         grid-area: title;
+      }
+      .quantity {
+         grid-area: quantity;
+      }
+      .price {
+         grid-area: price;
+      }
+      .delete_item {
+         grid-area: delete;
+         p {
+            display: none;
+         }
+      }
+      .more_details {
+         grid-area: showMore;
       }
    }
 `;

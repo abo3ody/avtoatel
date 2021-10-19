@@ -11,6 +11,7 @@ function CartPage() {
    useEffect(() => {
       localStorage.setItem("cart", JSON.stringify(cart));
       dispatch(COUNT_CART_TOTALS());
+      // eslint-disable-next-line
    }, [cart]);
    return (
       <Wrapper>
