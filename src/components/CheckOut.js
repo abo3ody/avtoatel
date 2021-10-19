@@ -96,11 +96,32 @@ const Wrapper = styled.section`
       letter-spacing: 0.1rem;
       background: #ffd700;
       border: none;
+      border-radius: 0.5rem;
       color: #4f4f4f;
       text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
       cursor: pointer;
       &:hover {
          opacity: 0.8;
+      }
+   }
+   @media screen and (max-width: 667px) {
+      .header {
+         h1 {
+            font-size: 1.5rem;
+         }
+      }
+      form > div {
+         label {
+            font-size: 1.3rem;
+         }
+         input {
+            padding: 0.3rem;
+         }
+      }
+      .totals {
+         p {
+            font-size: 1.3rem;
+         }
       }
    }
 `;

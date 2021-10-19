@@ -125,6 +125,19 @@ const Wrapper = styled.section`
       }
    }
    @media screen and (max-width: 667px) {
+      .empty {
+         h1 {
+            font-size: 2rem;
+         }
+         a {
+            font-size: 1.3rem;
+         }
+      }
+      .header {
+         h1 {
+            font-size: 1.5rem;
+         }
+      }
       .cart_footer {
          flex-direction: column;
       }

@@ -70,6 +70,9 @@ const Wrapper = styled.footer`
    }
    @media screen and (max-width: 834px) {
       justify-content: center;
+      .footer_info {
+         font-size: 1.1rem;
+      }
       .social_media {
          margin-left: auto;
          font-size: 2rem;
@@ -78,9 +81,6 @@ const Wrapper = styled.footer`
          align-items: center;
          justify-content: center;
          /* margin-left: 0.5rem; */
-      }
-      .social_media {
-         font-size: 2.3rem;
          a {
             margin-right: 0;
             padding: 1rem;
